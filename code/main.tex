@@ -1,0 +1,74 @@
+\documentclass{beamer}
+
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{setspace}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{color}
+\usepackage{array}
+\usepackage{calc} 
+\usepackage{bm}
+\usepackage{caption}
+\usepackage{float}
+
+\usetheme{CambridgeUS}
+\useoutertheme{infolines}
+%numbering
+\setbeamercolor{background canvas}{bg=white}
+\setbeamersize{text margin left=1cm,text margin right=1cm}
+
+\title[AI1110  Assignment-8]{ASSIGNMENT-8}
+\subtitle{AI1110}
+\author[]{MUKUNDA REDDY \\ AI21BTECH11021}
+\date
+
+\begin{document}
+  \begin{frame}
+      \titlepage
+  \end{frame}
+  
+  \begin{frame}{Outline}
+      \tableofcontents
+  \end{frame}
+  
+  \section{Question}
+  \begin{frame}{Exercise 7-13}
+       The random variables $X_i$ are i.i.d.
+       with moment function $ \phi_x (s) = 
+       E\{e^{sx_i}\} \forall i $.The random variable n takes the values 0,1,2... and its 
+       moment function equals $\Gamma_n \{z\} = E\{z^n\}$.Show that if
+       $$ y = \sum^{n}_{i=1} x_i,\: \text{then  }  \phi_y (s) = 
+       E\{e^{sy}\} = \Gamma_n \{\phi_x (s)\}  $$
+  \end{frame}
+  
+  \section{Solution}
+  \begin{frame}{Solution}
+     Given $y = x_1+x_2+...+x_n$ and given $ \phi_x (s) = 
+       E\{e^{sx_i}\} \forall i $  also by the
+       independence of the random variable $x_i$ we have
+       we have 
+      \begin{align}
+      E\{e^{sy}|n=k\} &= E\{e^{s(x_1+x_2..x_k)}\} \nonumber \\
+     &= E\{e^{sx_1}\}...E\{e^{sx_k}\} \nonumber \\
+     &= \phi_x (s)...\phi_x (s) \text{(k times)} \nonumber \\
+        \label{eq1} &= \phi_x ^{k} (s) 
+      \end{align}
+  \end{frame}
+  
+  \begin{frame}{Solution}
+      \begin{align}
+        \phi_y \{s\} &= E\{e^{sy}\} \nonumber  \\
+           &=   E\{E\{e^{sy}\}\} \text{ Since E\{E\{X\}\} = E\{X\} } \nonumber \\
+           &=  E\{ \phi_x ^{n} (s)\} \text{ from } \eqref{eq1} 
+      \end{align}
+      We know that $E\{z^{n}\} = \Gamma_n (z)$.
+      let's Consider $z=\phi_x (s)$ then we have
+      \begin{equation}
+      \phi_y \{s\} &= E\{e^{sy}\}  = \Gamma_n [\phi_x (s) ]    
+      \end{equation}
+  \end{frame}
+\end{document}
